@@ -1,204 +1,106 @@
-$(function () {
-    
-    //앵커 태그 새로고침 차단
-    $('a[href="#"]').click(function(e){
-       e.preventDefault(); 
+"use strict";
+
+handleNav();
+
+// href 값이 '#'인 A 태그 이동 차단
+document.addEventListener("click", (e) => {
+  const hrefValue = e.target.getAttribute("href");
+  if (hrefValue === "#") {
+    e.preventDefault();
+  }
+});
+
+function handleNav() {
+  const $hamburger = document.querySelector(".js-hamburger_menu");
+  const $nav = document.querySelector(".js-nav");
+  const $depthTitles = document.querySelectorAll(".js-depth1_title");
+  const $depth2Elms = document.querySelectorAll(".js-depth2_wrap");
+
+  const CLASSNAME_ON = "on";
+  const CLASSNAME_SHOW = "show";
+
+  /**
+   * DOM 요소마다 'on' class 제거
+   * @param {Array} arr DOM elements array
+   */
+  function removeClassOn(arr) {
+    arr.forEach((elm) => {
+      elm.classList.remove(CLASSNAME_ON);
     });
+  }
 
-    //    pc nav menu
-    var $menu = $('#menu');
-    var $menu_list = $menu.children('li');
-
-    $menu_list.bind('mouseenter', function () {
-        var $this = $(this);
-        $this.addClass('slide on');
-        $this.children('div').css('z-index', '9999').stop().slideDown(300, function () {
-            $menu_list.not('.slide').children('div').hide();
-            $this.removeClass('slide');
-        });
-    }).bind('mouseleave', function () {
-        var $this = $(this);
-        $this.removeClass('on').children('div').css('z-index', '1');
+  /**모든 js-depth2_wrap 숨김 */
+  function hideAllDepth2() {
+    $depth2Elms.forEach((elm) => {
+      elm.style.height = 0;
     });
+  }
 
-    $menu.bind('mouseenter', function () {
-        var $this = $(this);
-
-    }).bind('mouseleave', function () {
-        var $this = $(this);
-
-        $menu_list.children('div').hide();
-    });
-
-
-    //mobile nav side-nav
-    $("#nav_open").click(function () {
-        $("#nav_mobile").removeClass("close");
-        $("#nav_mobile").addClass("open");
-        $('body').css('overflow', 'hidden');
-
-        if ($("#nav_mobile").hasClass("open")) {
-            $("#nav_mobile").animate({
-                "right": "0"
-            }, 300);
-            $("#nav_layer").stop().fadeIn();
-        }
-    });
-
-    $("#nav_close, #nav_layer").click(function () {
-        $("#nav_mobile").removeClass("open");
-        $("#nav_mobile").addClass("close");
-        $('body').css('overflow', 'auto');
-
-        if ($("#nav_mobile").hasClass("close")) {
-            $("#nav_mobile").animate({
-                "right": "-80%"
-            }, 300);
-            $("#nav_layer").stop().fadeOut();
-        }
-        $(".submenu").stop().slideUp();
-    });
-
-    
-    //mobile nav submenu
-
-    $("#menu_mobile>li>.submenu_open").click(function (e) {
-        e.preventDefault();
-        $(".submenu").stop().slideUp(300);
-        $(this).parent().find(".submenu").stop().slideToggle(300);
-
-    });
-
-    //selector
-    $(function () {
-        $('.selectpicker').selectpicker();
-    });
-
-
-    //slide-swiper
-    new Swiper('.slide_swiper', {
-        autoplay: {
-            delay: 2000,
-            disableOnInteraction: false
-        },
-        effect: 'fade',
-        speed: 500,
-        slidesPerView: 1,
-        loop: true,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        }
-    });
-
-    //shortcut-swiper
-    var window_width = $(window).width();
-    if (window_width > 959) {
-        new Swiper('.shortcut_swiper', {
-            slidesPerView: 4,
-            spaceBetween: -50,
-            loop: true,
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            }
-        });
-    } else if (window_width > 767) {
-        new Swiper('.shortcut_swiper', {
-            slidesPerView: 3,
-            spaceBetween: -45,
-            loop: true,
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            }
-        });
-    } else {
-        new Swiper('.shortcut_swiper', {
-            slidesPerView: 2,
-            spaceBetween: -35,
-            loop: true,
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            }
-        });
+  /**모바일 햄버거 메뉴 토글*/
+  function toggleHamburger() {
+    const $navBg = document.querySelector(".js-nav_bg");
+    function toggleClassOn(elm) {
+      //'on' class => css transition 처리
+      elm.classList.toggle(CLASSNAME_ON);
+    }
+    function toggleClassShow(elm) {
+      //'show' class => css display 처리
+      elm.classList.toggle(CLASSNAME_SHOW);
     }
 
+    $navBg.classList.toggle(CLASSNAME_ON);
 
+    if ($nav.classList.contains(CLASSNAME_SHOW)) {
+      // 닫을 때 실행
+      $hamburger.innerHTML = "전체<br />메뉴";
+      removeClassOn($depthTitles);
+      hideAllDepth2();
+      toggleClassOn($nav);
+      setTimeout(() => {
+        toggleClassShow($nav);
+      }, 600);
+      // body scroll 허용 추가
+    } else {
+      // 열 때 실행
+      $hamburger.innerHTML = "메뉴<br />닫기";
+      toggleClassShow($nav);
+      setTimeout(() => {
+        toggleClassOn($nav);
+      });
+      // body scroll 금지 추가
+    }
+  }
 
+  /**
+   * 상하 슬라이드 애니메이션 토글
+   * @param elm DOM element
+   */
+  function toggleSlide(elm) {
+    let num;
+    0 === elm.offsetHeight
+      ? ((elm.style.height = "auto"),
+        (num = elm.offsetHeight),
+        (elm.style.height = 0),
+        // void operator로 height = 0 캐치
+        void elm.offsetHeight,
+        (elm.style.height = `${num}px`))
+      : (elm.style.height = 0);
+  }
 
+  $hamburger.addEventListener("click", toggleHamburger);
+  $depthTitles.forEach((elm) => {
+    // PC 해상도는 무시
+    if (screen.width >= 1132) return;
+    elm.addEventListener("click", (e) => {
+      //이벤트 대상이 아닌 js-depth1_title 배열 취득
+      const $otherTitles = [...$depthTitles].filter((title) => !(title === e.target));
+      //이벤트 대상의 형제 노드 취득
+      const $targetDepth2 = elm.parentNode.querySelector(".js-depth2_wrap");
 
-
-    //book-swiper
-    new Swiper('.book_general_swiper', {
-        slidesPerView: 1,
-        loop: true,
-        navigation: {
-            nextEl: '.swiper-button-next.book-button-next',
-            prevEl: '.swiper-button-prev.book-button-prev',
-        }
+      removeClassOn($otherTitles);
+      e.target.classList.toggle(CLASSNAME_ON);
+      hideAllDepth2();
+      toggleSlide($targetDepth2);
     });
-
-
-    var swiper = new Swiper('.book_kid_swiper', {
-        slidesPerView: 1,
-        loop: true,
-        navigation: {
-            nextEl: '.swiper-button-next.book-button-next',
-            prevEl: '.swiper-button-prev.book-button-prev',
-        },
-        observer: true,
-        observeParents: true
-    });
-
-
-    new Swiper('.book_recommend_swiper', {
-        slidesPerView: 1,
-        loop: true,
-        navigation: {
-            nextEl: '.swiper-button-next.book-button-next',
-            prevEl: '.swiper-button-prev.book-button-prev',
-        }
-    });
-
-
-
-    //book tab
-    $(".tab li").click(function (e) {
-        e.preventDefault();
-        var tab_id = $(this).attr("data-tab");
-
-        $(".tab li").removeClass("current");
-        $(".tab_content").removeClass("current");
-
-        $(this).addClass("current");
-        $("#" + tab_id).addClass("current");
-    })
-
-
-
-
-
-    //banner-swiper
-    new Swiper('.banner_swiper', {
-        autoplay: {
-            delay: 2000,
-            disableOnInteraction: false
-        },
-        slidesPerView: 4,
-        spaceBetween: 25,
-        loop: true,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        }
-    });
-
-
-
-
-
-
-
-});
+  });
+}

@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="ko">
-
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport"
-    content="width=divice-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
   <title>안양시립도서관 | 평촌도서관</title>
   <!-- 오픈 그래프 -->
   <!-- 이미지 및 url 수정 필요 -->
@@ -24,10 +22,7 @@
   <meta property="twitter:url" content="" />
   <link rel="shortcut icon" href="favicon.png" />
   <link rel="apple-touch-icon" href="favicon.png" />
-  <link rel="stylesheet" href="css/swiper.min.css" type="text/css" />
-  <link rel="stylesheet" href="css/index.css" type="text/css" />
+  <link rel="stylesheet" href="css/reset.css" type="text/css">
   <link rel="stylesheet" href="css/main.css" type="text/css" />
-  <script defer src="js/jquery-1.12.3.js"></script>
-  <script defer src="js/swiper.min.js"></script>
   <script defer src="js/index.js"></script>
 </head>

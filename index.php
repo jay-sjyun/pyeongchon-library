@@ -6,84 +6,58 @@
   <?php
     include_once __DIR__. '/include/gnb.php';
   ?>
-  <!-- <section id="search_section">
-    <div class="center_wrap">
-      <div id="search_wrap">
-        <h2><a href="#">도서검색</a></h2>
-        <select class="selectpicker search_option">
-          <option value="0">서명</option>
-          <option value="1">저자</option>
-          <option value="2">출판사</option>
-        </select>
-        <div id="search_box">
-          <input type="text" placeholder="검색어를 입력하세요." />
-          <button><img src="images/search/mag_glass_white.png" alt="search" /></button>
-        </div>
+  <div class="search_section">
+    <div class="search_wrap">
+      <h2 class="search_title">도서검색</h2>
+      <div class="category_dropbox js-dropbox">
+        <p class="category_select js-dropbox_select">분류
+          <span class="arrow_box"><img src="images/arrow_down_white.png" alt="화살표"></span>
+        </p>
+        <ul class="category_list">
+          <li>서명</li>
+          <li>저자</li>
+          <li>출판사</li>
+        </ul>
       </div>
+      <form class="search_form">
+        <input type="text" placeholder="검색어를 입력하세요." class="search_input" />
+      </form>
     </div>
-  </section> -->
-  <!-- <section id="slider_section_pc">
-    <h2 class="hidden"><a href="#">슬라이드</a></h2>
-    <div class="visual">
-      <div class="swiper-container slide_swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <a href="#"><img src="images/slide/slide1.jpg" alt="slider_pc1" /></a>
-          </div>
-          <div class="swiper-slide">
-            <a href="https://1000.library.kr" target="_blank"><img src="images/slide/slide2.jpg" alt="slider_pc2" /></a>
-          </div>
-          <div class="swiper-slide">
-            <a href="https://dokdo.mofa.go.kr/kor/pds/pdf.jsp" target="_blank"><img src="images/slide/slide3.jpg"
-                alt="slider_pc3" /></a>
-          </div>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
+  </div>
+  <div class="visual_section">
+    <div class="slider">
+      <ul class="slider_list">
+        <li class="slider_item">
+          <a href="#">
+            <picture>
+              <source media="(max-width:767px)" srcset="images/slide1_m.jpg">
+              <source media="(max-width:1131px)" srcset="images/slide1_t.jpg">
+              <img src="images/slide1.jpg" alt="책속에 우리의 행복이. 평촌도서관이 함께 합니다. 자료특성화: 경제, 교육">
+            </picture>
+          </a>
+        </li>
+        <li class="slider_item">
+          <a href="https://1000.library.kr/" target="_blank" title="경기도 메모리 기억의 도서관">
+            <picture>
+              <source media="(max-width:767px)" srcset="images/slide2_m.jpg">
+              <source media="(max-width:1131px)" srcset="images/slide2_t.jpg">
+              <img src="images/slide2.jpg" alt="경기도 메모리 기억의 도서관">
+            </picture>
+          </a>
+        </li>
+        <li class="slider_item">
+          <a href="https://dokdo.mofa.go.kr/kor/pds/pdf.jsp" target="_blank" title="한국의 아름다운 섬, 독도">
+            <picture>
+              <source media="(max-width:767px)" srcset="images/slide3_m.jpg">
+              <source media="(max-width:1131px)" srcset="images/slide3_t.jpg">
+              <img src="images/slide3.jpg" alt="한국의 아름다운 섬, 독도">
+            </picture>
+          </a>
+        </li>
+      </ul>
     </div>
-  </section> -->
-  <!-- <section id="slider_section_tablet">
-    <h2 class="hidden"><a href="#">태블릿 슬라이드</a></h2>
-    <div class="visual">
-      <div class="swiper-container slide_swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <a href="#"><img src="images/slide/slide1_t.jpg" alt="slider_tablet1" /></a>
-          </div>
-          <div class="swiper-slide">
-            <a href="https://1000.library.kr" target="_blank"><img src="images/slide/slide2_t.jpg"
-                alt="slider_tablet2" /></a>
-          </div>
-          <div class="swiper-slide">
-            <a href="https://dokdo.mofa.go.kr/kor/pds/pdf.jsp" target="_blank"><img src="images/slide/slide3_t.jpg"
-                alt="slider_tablet3" /></a>
-          </div>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-    </div>
-  </section>
-  <section id="slider_section_mobile">
-    <h2 class="hidden"><a href="#">모바일 슬라이드</a></h2>
-    <div class="visual">
-      <div class="swiper-container slide_swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <a href="#"><img src="images/slide/slide1_m.jpg" alt="slider_mobile1" /></a>
-          </div>
-          <div class="swiper-slide">
-            <a href="https://1000.library.kr" target="_blank"><img src="images/slide/slide2_m.jpg"
-                alt="slider_mobile2" /></a>
-          </div>
-          <div class="swiper-slide">
-            <a href="https://dokdo.mofa.go.kr/kor/pds/pdf.jsp" target="_blank"><img src="images/slide/slide3_m.jpg"
-                alt="slider_mobile3" /></a>
-          </div>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-    </div>
-  </section>
+  </div>
+  <!-- 
   <section id="shortcut_section">
     <h2 class="hidden"><a href="#">서비스 메뉴</a></h2>
     <div class="center_wrap">
@@ -340,6 +314,12 @@
   <?php
     include_once __DIR__. '/include/footer.php';
   ?>
+
+  <script>
+  window.addEventListener('load', () => {
+    visualSlider()
+  })
+  </script>
 </body>
 
 </html>

@@ -21,7 +21,7 @@ function handleNav() {
 
   /**
    * DOM 요소마다 'on' class 제거
-   * @param {Array} arr DOM elements array
+   * @param arr DOM elements array
    */
   function removeClassOn(arr) {
     arr.forEach((elm) => {
@@ -39,6 +39,7 @@ function handleNav() {
   /**모바일 햄버거 메뉴 토글*/
   function toggleHamburger() {
     const $navBg = document.querySelector(".js-nav_bg");
+
     function toggleClassOn(elm) {
       //'on' class => css transition 처리
       elm.classList.toggle(CLASSNAME_ON);
@@ -103,4 +104,26 @@ function handleNav() {
       toggleSlide($targetDepth2);
     });
   });
+}
+
+function visualSlider() {
+  const CLASSNAME_ON = "on";
+  const firstSlide = document.querySelector(".visual_section .slider_item:first-child");
+
+  function slide() {
+    const currentSlide = document.querySelector(`.visual_section .${CLASSNAME_ON}`);
+
+    if (currentSlide) {
+      currentSlide.classList.remove(CLASSNAME_ON);
+
+      const nextSlide = currentSlide.nextElementSibling;
+
+      nextSlide ? nextSlide.classList.add(CLASSNAME_ON) : firstSlide.classList.add(CLASSNAME_ON);
+    } else {
+      firstSlide.classList.add(CLASSNAME_ON);
+    }
+  }
+
+  slide();
+  setInterval(slide, 2000);
 }

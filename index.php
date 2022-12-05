@@ -8,7 +8,7 @@
   ?>
   <div class="search_section">
     <div class="search_wrap">
-      <h2 class="search_title">도서검색</h2>
+      <h2 class="section_title">도서검색</h2>
       <div class="category_dropbox js-dropbox">
         <p class="category_select js-dropbox_select">분류
           <span class="arrow_box"><img src="images/arrow_down_white.png" alt="화살표"></span>
@@ -57,205 +57,266 @@
       </ul>
     </div>
   </div>
-  <!-- 
-  <section id="shortcut_section">
-    <h2 class="hidden"><a href="#">서비스 메뉴</a></h2>
+  <div class="shortcut_icon_section js-shortcut_icon_section">
     <div class="center_wrap">
-      <div class="visual">
-        <div class="swiper-container shortcut_swiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <a href="#"><img src="images/shortcut/1_info.png" alt="info" /></a>
-              <div class="shortcut_text">도서관이용안내</div>
-            </div>
-            <div class="swiper-slide">
-              <a href="#"><img src="images/shortcut/2_rent.png" alt="book_rent" /></a>
-              <div class="shortcut_text">대출현황조회</div>
-            </div>
-            <div class="swiper-slide">
-              <a href="#"><img src="images/shortcut/3_digital.png" alt="digital_library" /></a>
-              <div class="shortcut_text">디지털도서관예약</div>
-            </div>
-            <div class="swiper-slide">
-              <a href="#"><img src="images/shortcut/4_seat.png" alt="seat" /></a>
-              <div class="shortcut_text">열람실좌석현황</div>
-            </div>
-            <div class="swiper-slide">
-              <a href="#"><img src="images/shortcut/5_wishlist.png" alt="wishlist" /></a>
-              <div class="shortcut_text">희망도서신청</div>
-            </div>
-            <div class="swiper-slide">
-              <a href="#"><img src="images/shortcut/6_event.png" alt="event" /></a>
-              <div class="shortcut_text">문화행사신청</div>
-            </div>
-            <div class="swiper-slide">
-              <a href="#"><img src="images/shortcut/7_donation.png" alt="book_donation" /></a>
-              <div class="shortcut_text">도서기증안내</div>
-            </div>
-          </div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-        </div>
+      <div class="slider_wrap">
+        <ul class="slider js-slider">
+          <li class="slide">
+            <a href="#" class="content_wrap" title="도서관이용안내">
+              <img src="images/icon1_info.png" alt="도서관이용안내">
+              <span class="icon_txt">도서관이용안내</span>
+            </a>
+          </li>
+          <li class="slide">
+            <a href="#" class="content_wrap" title="대출현황조회">
+              <img src="images/icon2_rent.png" alt="대출현황조회">
+              <span class="icon_txt">대출현황조회</span>
+            </a>
+          </li>
+          <li class="slide">
+            <a href="#" class="content_wrap" title="디지털도서관예약">
+              <img src="images/icon3_digital.png" alt="디지털도서관예약">
+              <span class="icon_txt">디지털도서관예약</span>
+            </a>
+          </li>
+          <li class="slide">
+            <a href="#" class="content_wrap" title="열람실좌석현황">
+              <img src="images/icon4_seat.png" alt="열람실좌석현황">
+              <span class="icon_txt">열람실좌석현황</span>
+            </a>
+          </li>
+          <li class="slide">
+            <a href="#" class="content_wrap" title="희망도서신청">
+              <img src="images/icon5_wishlist.png" alt="희망도서신청">
+              <span class="icon_txt">희망도서신청</span>
+            </a>
+          </li>
+          <li class="slide">
+            <a href="#" class="content_wrap" title="문화행사신청">
+              <img src="images/icon6_event.png" alt="문화행사신청">
+              <span class="icon_txt">문화행사신청</span>
+            </a>
+          </li>
+          <li class="slide">
+            <a href="#" class="content_wrap" title="도서기증안내">
+              <img src="images/icon7_donation.png" alt="도서기증안내">
+              <span class="icon_txt">도서기증안내</span>
+            </a>
+          </li>
+        </ul>
       </div>
-    </div>
-  </section>
-  <div class="center_wrap">
-    <section id="notice">
-      <div id="notice_title">
-        <h2><a href="#">공지사항</a></h2>
-        <a href="#"><img src="images/notice/more_btn_black.png" alt="more" /></a>
-      </div>
-      <hr class="notice_divider" />
-      <table>
-        <tr>
-          <td><a href="#">2020년 평촌도서관 파트타임 근로자 채용 공고</a></td>
-          <td class="date">19-12-02</td>
-        </tr>
-        <tr>
-          <td><a href="#">&#91;평촌&#93;짧은 동화 긴생각 독서퀴즈 2019년 11월 당첨자 및 12월 문제 출제서 안내</a></td>
-          <td class="date">19-12-01</td>
-        </tr>
-        <tr>
-          <td><a href="#">평촌도서관 최영미 시인 특강 취소 안내</a></td>
-          <td class="date">19-11-29</td>
-        </tr>
-        <tr>
-          <td><a href="#">2019년 평촌도서관 희망도서 마감 안내</a></td>
-          <td class="date">19-11-29</td>
-        </tr>
-        <tr>
-          <td><a href="#">2020년도 안양시 &#40;평촌,관양,비산,호계,어린이&#41;도서관 청소·안내·시설 기간제근로자 채용 공고</a></td>
-          <td class="date">19-11-28</td>
-        </tr>
-      </table>
-    </section>
-    <section id="block">
-      <h2 class="hidden"><a href="#">바로가기</a></h2>
-      <div id="schedule">
-        <div class="block_wrap">
-          <h3><a href="#">도서관 일정</a></h3>
-          <p><a href="#">살펴보기</a></p>
-        </div>
-      </div>
-      <div id="faq">
-        <div class="block_wrap">
-          <h3><a href="#">자주하는 질문</a></h3>
-        </div>
-      </div>
-      <div id="sites">
-        <div class="block_wrap">
-          <h3><a href="#">추천사이트</a></h3>
-          <a href="#">
-            <img src="images/block/more_btn_white.png" alt="more" />
-          </a>
-        </div>
-      </div>
-      <div id="ask">
-        <div class="block_wrap">
-          <h3>
-            <a href="#">사서에게<br />물어보세요</a>
-          </h3>
-          <p><a href="#">지식정보 검색</a></p>
-        </div>
-      </div>
-    </section>
-  </div>
-  <div id="books">
-    <div class="center_wrap">
-      <section id="book_best">
-        <div class="book_section_head">
-          <h2><a href="#">대출 베스트</a></h2>
-          <ul class="tab">
-            <li class="current" data-tab="general"><a href="#">일반도서</a></li>
-            <li id="kid_tab" data-tab="kid"><a href="#">어린이</a></li>
-          </ul>
-          <a href="#"><img src="images/book/more_btn_black.png" alt="more" /></a>
-        </div>
-        <div id="general" class="tab_content current">
-          <div class="visual">
-            <div class="swiper-container book_general_swiper">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <a href="#"><img src="images/book/best1.jpg" alt="book_best1" /></a>
-                  <div class="book_title">공부머리 독서법</div>
-                  <div class="book_info">최승필 지음 | 책구루<br />2018. 05. 03</div>
-                </div>
-                <div class="swiper-slide">
-                  <a href="#"><img src="images/book/best2.jpg" alt="book_best2" /></a>
-                  <div class="book_title">90년생이 온다</div>
-                  <div class="book_info">임홍택 지음 | 웨일북<br />2018. 11. 16</div>
-                </div>
-                <div class="swiper-slide">
-                  <a href="#"><img src="images/book/best3.jpg" alt="book_best3" /></a>
-                  <div class="book_title">죽음</div>
-                  <div class="book_info">베르나르 베르베르 지음 | 열린책들<br />2019. 05. 30</div>
-                </div>
-              </div>
-              <div class="swiper-button-next book-button-next"></div>
-              <div class="swiper-button-prev book-button-prev"></div>
-            </div>
-          </div>
-        </div>
-        <div id="kid" class="tab_content">
-          <div class="visual">
-            <div class="swiper-container book_kid_swiper">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <a href="#"><img src="images/book/best_kid1.jpg" alt="book_best_kid1" /></a>
-                  <div class="book_title">커다란 양 힐다</div>
-                  <div class="book_info">에밀리오 우르베루아가 지음 | 지양사<br />2019. 03. 12</div>
-                </div>
-                <div class="swiper-slide">
-                  <a href="#"><img src="images/book/best_kid2.jpg" alt="book_best_kid2" /></a>
-                  <div class="book_title">친구 사귀기</div>
-                  <div class="book_info">김영진 지음 | 길벗어린이<br />2018. 03. 20</div>
-                </div>
-                <div class="swiper-slide">
-                  <a href="#"><img src="images/book/best_kid3.jpg" alt="book_best_kid3" /></a>
-                  <div class="book_title">못생긴 친구를 소개합니다</div>
-                  <div class="book_info">줄리아 도널드슨 글<br />악셀 셰플러 그림 | 비룡소<br />2017. 09. 15</div>
-                </div>
-              </div>
-              <div class="swiper-button-next book-button-next"></div>
-              <div class="swiper-button-prev book-button-prev"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id="book_recommend">
-        <div class="book_section_head">
-          <h2><a href="#">추천도서</a></h2>
-          <a href=""><img src="images/book/more_btn_black.png" alt="more" /></a>
-        </div>
-        <div id="recommend">
-          <div class="visual">
-            <div class="swiper-container book_recommend_swiper">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <a href="#"><img src="images/book/recommend1.jpg" alt="book_recommendation1" /></a>
-                  <div class="book_title">요즘 아이들 마음고생의 비밀</div>
-                  <div class="book_info">김현수 지음 | 해냄출판사<br />2019. 04. 08</div>
-                </div>
-                <div class="swiper-slide">
-                  <a href="#"><img src="images/book/recommend2.jpg" alt="book_recommendation2" /></a>
-                  <div class="book_title">임헌영의 유럽문학기행</div>
-                  <div class="book_info">임헌영 지음 | 역사비평사<br />2019. 07. 24</div>
-                </div>
-                <div class="swiper-slide">
-                  <a href="#"><img src="images/book/recommend3.jpg" alt="book_recommendation3" /></a>
-                  <div class="book_title">한밤중 달빛 식당</div>
-                  <div class="book_info">이분희 글<br />윤태규 그림 | 비룡소<br />2018. 03. 15</div>
-                </div>
-              </div>
-              <div class="swiper-button-next book-button-next"></div>
-              <div class="swiper-button-prev book-button-prev"></div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <button class="prev_btn js-prev_btn">
+        <img src="images/arrow_side_black.png" alt="이전 화살표">
+      </button>
+      <button class="next_btn js-next_btn">
+        <img src="images/arrow_side_black.png" alt="다음 화살표">
+      </button>
     </div>
   </div>
-  <div id="banner_and_family">
+  <div class="notice_and_block center_wrap">
+    <div class="notice_section">
+      <div class="section_head">
+        <h2 class="section_title">공지사항</h2>
+        <a href="#" class="more_link"><img src="images/more_btn_black.png" alt="더보기" /></a>
+      </div>
+      <ul class="notice_list">
+        <li>
+          <span class="notice_title">
+            <a href="#">2023년 평촌도서관 파트타임 근로자 채용 공고</a>
+          </span>
+          <span class="notice_date">
+            22-12-02
+          </span>
+        </li>
+        <li>
+          <span class="notice_title">
+            <a href="#">&#91;평촌&#93;짧은 동화 긴생각 독서퀴즈 2022년 11월 당첨자 및 12월 문제 출제서 안내</a>
+          </span>
+          <span class="notice_date">
+            22-12-01
+          </span>
+        </li>
+        <li>
+          <span class="notice_title">
+            <a href="#">평촌도서관 최영미 시인 특강 취소 안내</a>
+          </span>
+          <span class="notice_date">
+            22-11-29
+          </span>
+        </li>
+        <li>
+          <span class="notice_title">
+            <a href="#">2022년 평촌도서관 희망도서 마감 안내</a>
+          </span>
+          <span class="notice_date">
+            22-11-29
+          </span>
+        </li>
+        <li>
+          <span class="notice_title">
+            <a href="#">2023년도 안양시 &#40;평촌,관양,비산,호계,어린이&#41;도서관 청소·안내·시설 기간제근로자 채용 공고</a>
+          </span>
+          <span class="notice_date">
+            22-11-28
+          </span>
+        </li>
+      </ul>
+    </div>
+    <div class="shortcut_block_section">
+      <div class="schedule">
+        <a href="#" class="text_wrap">
+          <span class="shortcut_txt">도서관 일정</span>
+          <span class="shortcut_txt_sub">살펴보기</span>
+        </a>
+      </div>
+      <div class="sites">
+        <a href="#" class="text_wrap">
+          <span class="shortcut_txt">추천사이트</span>
+        </a>
+      </div>
+      <div class="faq">
+        <a href="#" class="text_wrap">
+          <span class="shortcut_txt">자주하는 질문</span>
+        </a>
+      </div>
+      <div class="ask">
+        <a href="#" class="text_wrap">
+          <span class="shortcut_txt">사서에게<br>물어보세요</span>
+          <span class="shortcut_txt_sub">지식정보 검색</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="books_section js-books_section">
+    <div class="center_wrap">
+      <ul class="category_tabs js-data_tabs">
+        <li class="tab on" data-tab="best" tabindex="0">대출베스트</li>
+        <li class="tab" data-tab="recommend" tabindex="0">추천도서</li>
+        <li class="tab" data-tab="new" tabindex="0">신착도서</li>
+      </ul>
+      <div class="books_list_wrap on js-data_box" data-content="best">
+        <ul class="books_list">
+          <li>
+            <a href="#" class="book_content">
+              <div class="book_cover">
+                <img src="images/book_best1.jpg" alt="불편한 편의점">
+              </div>
+              <strong class="book_title">불편한 편의점</strong>
+              <span class="book_info">김호연 지음 | 나무옆의자</span>
+              <span class="book_date">2021</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="book_content">
+              <div class="book_cover">
+                <img src="images/book_best2.jpg" alt="체리새우:비밀글입니다">
+              </div>
+              <strong class="book_title">체리새우:비밀글입니다</strong>
+              <span class="book_info">황영미 지음 | 문학동네</span>
+              <span class="book_date">2019</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="book_content">
+              <div class="book_cover">
+                <img src="images/book_best3.jpg" alt="이상한 엄마">
+              </div>
+              <strong class="book_title">이상한 엄마</strong>
+              <span class="book_info">백희나 지음 | 책읽는곰</span>
+              <span class="book_date">2022</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="book_content">
+              <div class="book_cover">
+                <img src="images/book_best4.jpg" alt="페인트">
+              </div>
+              <strong class="book_title">페인트</strong>
+              <span class="book_info">이희영 지음 | 창비</span>
+              <span class="book_date">2019</span>
+            </a>
+          </li>
+        </ul>
+        <a href="#" title="더보기" class="more_link"><img src="images/more_btn_black.png" alt="더보기"></a>
+      </div>
+      <div class="books_list_wrap js-data_box" data-content="recommend">
+        <ul class="books_list">
+          <li>
+            <a href="#" class="book_content">
+              <div class="book_cover"><img src="images/book_recommend1.jpg" alt="걱정 많은 어른들을 위한 화학 이야기"></div>
+              <strong class="book_title">걱정 많은 어른들을 위한 화학 이야기</strong>
+              <span class="book_info">윤정인 지음 | 푸른숲</span>
+              <span class="book_date">2022</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="book_content">
+              <div class="book_cover"><img src="images/book_recommend2.jpg" alt="기후미식"></div>
+              <strong class="book_title">기후미식</strong>
+              <span class="book_info">이의철 지음 | 위즈덤하우스</span>
+              <span class="book_date">2022</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="book_content">
+              <div class="book_cover"><img src="images/book_recommend3.jpg" alt="얼마나 이상하든"></div>
+              <strong class="book_title">얼마나 이상하든</strong>
+              <span class="book_info">김희진 지음 | 자음과모음</span>
+              <span class="book_date">2021</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="book_content">
+              <div class="book_cover"><img src="images/book_recommend4.jpg" alt="1등은 당신처럼 SNS하지 않는다"></div>
+              <strong class="book_title">1등은 당신처럼 SNS하지 않는다</strong>
+              <span class="book_info">정진수 지음 | 나비의 활주로</span>
+              <span class="book_date">2022</span>
+            </a>
+          </li>
+        </ul>
+        <a href="#" title="더보기" class="more_link"><img src="images/more_btn_black.png" alt="더보기"></a>
+      </div>
+      <div class="books_list_wrap js-data_box" data-content="new">
+        <ul class="books_list">
+          <li>
+            <a href="#" class="book_content">
+              <div class="book_cover"><img src="images/book_new1.jpg" alt="초등학생이 좋아하는 동화책 200"></div>
+              <strong class="book_title">초등학생이 좋아하는 동화책 200</strong>
+              <span class="book_info">이시내 지음 | 북하우스</span>
+              <span class="book_date">2022</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="book_content">
+              <div class="book_cover"><img src="images/book_new2.jpg" alt="인생의 허무를 어떻게 할 것인가"></div>
+              <strong class="book_title">인생의 허무를 어떻게 할 것인가</strong>
+              <span class="book_info">김영민 지음 | 사회평론아카데미</span>
+              <span class="book_date">2022</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="book_content">
+              <div class="book_cover"><img src="images/book_new3.jpg" alt="이상한 나라의 책 읽기"></div>
+              <strong class="book_title">이상한 나라의 책 읽기</strong>
+              <span class="book_info">윤성근 지음 | 드루</span>
+              <span class="book_date">2022</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="book_content">
+              <div class="book_cover"><img src="images/book_new4.jpg" alt="필요했어, 이런 미술 수업"></div>
+              <strong class="book_title">필요했어, 이런 미술 수업</strong>
+              <span class="book_info">조현영 지음 | 다른</span>
+              <span class="book_date">2022</span>
+            </a>
+          </li>
+        </ul>
+        <a href="#" title="더보기" class="more_link"><img src="images/more_btn_black.png" alt="더보기"></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div id="banner_and_family">
     <div class="center_wrap">
       <section id="banner">
         <h2 class="hidden"><a href="#">배너</a></h2>
@@ -317,7 +378,9 @@
 
   <script>
   window.addEventListener('load', () => {
-    visualSlider()
+    visualSlider();
+    shortcutIconSlider();
+    handleTab(document.querySelector('.js-books_section'));
   })
   </script>
 </body>

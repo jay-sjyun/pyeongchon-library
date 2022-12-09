@@ -249,6 +249,7 @@ body {
     overflow: hidden;
     min-width: 95px;
     margin-right: 20px;
+    cursor: pointer;
 
     &.on {
       overflow: visible;
@@ -269,6 +270,7 @@ body {
     border: 2px solid $colorWH1;
     border-radius: 5px;
     font-size: 1.7rem;
+    white-space: nowrap;
   }
 
   .arrow_box {
@@ -281,6 +283,7 @@ body {
     width: 20px;
     height: 20px;
     transform: translateY(-50%);
+    pointer-events: none;
 
     img {
       transition: all 0.3s ease-in-out;
@@ -634,10 +637,6 @@ body {
     &.on {
       color: $colorDBK1;
     }
-
-    &:hover {
-      color: $colorBL1;
-    }
   }
 
   .books_list_wrap {
@@ -667,15 +666,11 @@ body {
   }
 
   .book_cover {
-    height: 30vh;
+    max-width: initial;
+    width: 100%;
     min-height: 200px;
-
-    img {
-      max-width: initial;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    height: 30vh;
+    object-fit: cover;
   }
 
   .book_title {
@@ -709,11 +704,16 @@ body {
   .more_link {
     display: block;
     position: absolute;
-    top: 40px;
-    right: 20px;
+    top: 10px;
+    right: 10px;
     width: 2rem;
     height: 2rem;
   }
+}
+
+/*<----------배너 banner---------->*/
+.banner_and_familysite {
+  display: none;
 }
 
 /*<----------푸터 footer---------->*/
@@ -1421,6 +1421,10 @@ body {
       padding: 25px 15px;
     }
 
+    .tab:hover {
+      color: $colorBL1;
+    }
+
     .books_list_wrap {
       max-width: initial;
     }
@@ -1442,6 +1446,157 @@ body {
     .more_link {
       top: 25px;
       right: 45px;
+    }
+  }
+
+  /*<----------배너 banner---------->*/
+  .banner_and_familysite {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 50px 0;
+  }
+
+  .banner_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+
+    .slider_wrap {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 55px;
+    }
+
+    .slider {
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      &.animated {
+        transition: left 0.3s;
+      }
+    }
+
+    .slide {
+      flex-shrink: 0;
+      width: 25%;
+
+      a {
+        display: block;
+        width: 90%;
+        margin: 0 auto;
+      }
+    }
+
+    .slider_nav {
+      display: flex;
+      margin-top: 25px;
+
+      li {
+        width: 8px;
+        height: 8px;
+        border-radius: 100%;
+        background: $colorlineGR1;
+        margin-right: 6px;
+        cursor: pointer;
+        transition: background 0.3s;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        &.on {
+          background: $colorTGN1;
+        }
+      }
+    }
+  }
+
+  /*<----------관련 사이트 family site---------->*/
+  .familysite_section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 95px;
+    border-left: 1px solid $colorlineGR1;
+
+    .familysite_dropbox {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+
+      &.on {
+        overflow: visible;
+
+        .arrow_box img {
+          transform: rotate(0deg);
+        }
+
+        .familysite_list {
+          display: block;
+        }
+      }
+    }
+
+    .familysite_select {
+      position: relative;
+      padding: 15px 55px 15px 15px;
+      border: 2px solid $colorlineLGR1;
+      border-radius: 5px;
+      font-size: 1.7rem;
+      font-weight: 600;
+    }
+
+    .arrow_box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      width: 2rem;
+      height: 2rem;
+      transform: translateY(-50%);
+      pointer-events: none;
+
+      img {
+        transform: rotate(180deg);
+        transition: all 0.3s ease-in-out;
+      }
+    }
+
+    .familysite_list {
+      display: none;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      width: 100%;
+      border: 1px solid $colorlineLGR1;
+      background: $colorWH1;
+      border-radius: 5px;
+      transform: translateY(-100%);
+
+      li {
+        width: 100%;
+        padding: 15px 10px;
+        color: $colorBK1;
+        font-size: 1.7rem;
+        text-align: center;
+
+        &:hover,
+        &:active {
+          background: $colorLGR1;
+        }
+      }
     }
   }
 }

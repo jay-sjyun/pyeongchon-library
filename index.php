@@ -6,14 +6,14 @@
   <?php
     include_once __DIR__. '/include/gnb.php';
   ?>
-  <div class="search_section">
+  <div class="search_section js-search_section">
     <div class="search_wrap">
       <h2 class="section_title">도서검색</h2>
       <div class="category_dropbox js-dropbox">
         <p class="category_select js-dropbox_select">분류
           <span class="arrow_box"><img src="images/arrow_down_white.png" alt="화살표"></span>
         </p>
-        <ul class="category_list">
+        <ul class="category_list js-dropbox_list">
           <li>서명</li>
           <li>저자</li>
           <li>출판사</li>
@@ -198,9 +198,7 @@
         <ul class="books_list">
           <li>
             <a href="#" class="book_content">
-              <div class="book_cover">
-                <img src="images/book_best1.jpg" alt="불편한 편의점">
-              </div>
+              <img src="images/book_best1.jpg" alt="불편한 편의점" class="book_cover">
               <strong class="book_title">불편한 편의점</strong>
               <span class="book_info">김호연 지음 | 나무옆의자</span>
               <span class="book_date">2021</span>
@@ -208,9 +206,7 @@
           </li>
           <li>
             <a href="#" class="book_content">
-              <div class="book_cover">
-                <img src="images/book_best2.jpg" alt="체리새우:비밀글입니다">
-              </div>
+              <img src="images/book_best2.jpg" alt="체리새우:비밀글입니다" class="book_cover">
               <strong class="book_title">체리새우:비밀글입니다</strong>
               <span class="book_info">황영미 지음 | 문학동네</span>
               <span class="book_date">2019</span>
@@ -218,9 +214,7 @@
           </li>
           <li>
             <a href="#" class="book_content">
-              <div class="book_cover">
-                <img src="images/book_best3.jpg" alt="이상한 엄마">
-              </div>
+              <img src="images/book_best3.jpg" alt="이상한 엄마" class="book_cover">
               <strong class="book_title">이상한 엄마</strong>
               <span class="book_info">백희나 지음 | 책읽는곰</span>
               <span class="book_date">2022</span>
@@ -228,9 +222,7 @@
           </li>
           <li>
             <a href="#" class="book_content">
-              <div class="book_cover">
-                <img src="images/book_best4.jpg" alt="페인트">
-              </div>
+              <img src="images/book_best4.jpg" alt="페인트" class="book_cover">
               <strong class="book_title">페인트</strong>
               <span class="book_info">이희영 지음 | 창비</span>
               <span class="book_date">2019</span>
@@ -243,7 +235,7 @@
         <ul class="books_list">
           <li>
             <a href="#" class="book_content">
-              <div class="book_cover"><img src="images/book_recommend1.jpg" alt="걱정 많은 어른들을 위한 화학 이야기"></div>
+              <img src="images/book_recommend1.jpg" alt="걱정 많은 어른들을 위한 화학 이야기" class="book_cover">
               <strong class="book_title">걱정 많은 어른들을 위한 화학 이야기</strong>
               <span class="book_info">윤정인 지음 | 푸른숲</span>
               <span class="book_date">2022</span>
@@ -251,7 +243,7 @@
           </li>
           <li>
             <a href="#" class="book_content">
-              <div class="book_cover"><img src="images/book_recommend2.jpg" alt="기후미식"></div>
+              <img src="images/book_recommend2.jpg" alt="기후미식" class="book_cover">
               <strong class="book_title">기후미식</strong>
               <span class="book_info">이의철 지음 | 위즈덤하우스</span>
               <span class="book_date">2022</span>
@@ -259,7 +251,7 @@
           </li>
           <li>
             <a href="#" class="book_content">
-              <div class="book_cover"><img src="images/book_recommend3.jpg" alt="얼마나 이상하든"></div>
+              <img src="images/book_recommend3.jpg" alt="얼마나 이상하든" class="book_cover">
               <strong class="book_title">얼마나 이상하든</strong>
               <span class="book_info">김희진 지음 | 자음과모음</span>
               <span class="book_date">2021</span>
@@ -267,7 +259,7 @@
           </li>
           <li>
             <a href="#" class="book_content">
-              <div class="book_cover"><img src="images/book_recommend4.jpg" alt="1등은 당신처럼 SNS하지 않는다"></div>
+              <img src="images/book_recommend4.jpg" alt="1등은 당신처럼 SNS하지 않는다" class="book_cover">
               <strong class="book_title">1등은 당신처럼 SNS하지 않는다</strong>
               <span class="book_info">정진수 지음 | 나비의 활주로</span>
               <span class="book_date">2022</span>
@@ -280,7 +272,7 @@
         <ul class="books_list">
           <li>
             <a href="#" class="book_content">
-              <div class="book_cover"><img src="images/book_new1.jpg" alt="초등학생이 좋아하는 동화책 200"></div>
+              <img src="images/book_new1.jpg" alt="초등학생이 좋아하는 동화책 200" class="book_cover">
               <strong class="book_title">초등학생이 좋아하는 동화책 200</strong>
               <span class="book_info">이시내 지음 | 북하우스</span>
               <span class="book_date">2022</span>
@@ -288,7 +280,7 @@
           </li>
           <li>
             <a href="#" class="book_content">
-              <div class="book_cover"><img src="images/book_new2.jpg" alt="인생의 허무를 어떻게 할 것인가"></div>
+              <img src="images/book_new2.jpg" alt="인생의 허무를 어떻게 할 것인가" class="book_cover">
               <strong class="book_title">인생의 허무를 어떻게 할 것인가</strong>
               <span class="book_info">김영민 지음 | 사회평론아카데미</span>
               <span class="book_date">2022</span>
@@ -296,7 +288,7 @@
           </li>
           <li>
             <a href="#" class="book_content">
-              <div class="book_cover"><img src="images/book_new3.jpg" alt="이상한 나라의 책 읽기"></div>
+              <img src="images/book_new3.jpg" alt="이상한 나라의 책 읽기" class="book_cover">
               <strong class="book_title">이상한 나라의 책 읽기</strong>
               <span class="book_info">윤성근 지음 | 드루</span>
               <span class="book_date">2022</span>
@@ -304,7 +296,7 @@
           </li>
           <li>
             <a href="#" class="book_content">
-              <div class="book_cover"><img src="images/book_new4.jpg" alt="필요했어, 이런 미술 수업"></div>
+              <img src="images/book_new4.jpg" alt="필요했어, 이런 미술 수업" class="book_cover">
               <strong class="book_title">필요했어, 이런 미술 수업</strong>
               <span class="book_info">조현영 지음 | 다른</span>
               <span class="book_date">2022</span>
@@ -315,72 +307,86 @@
       </div>
     </div>
   </div>
-
-  <!-- <div id="banner_and_family">
-    <div class="center_wrap">
-      <section id="banner">
-        <h2 class="hidden"><a href="#">배너</a></h2>
-        <div class="visual">
-          <div class="swiper-container banner_swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <a href="#"><img src="images/banner/banner_01.jpg" alt="banner1" /></a>
-              </div>
-              <div class="swiper-slide">
-                <a href="#"><img src="images/banner/banner_02.jpg" alt="banner2" /></a>
-              </div>
-              <div class="swiper-slide">
-                <a href="#"><img src="images/banner/banner_03.jpg" alt="banner3" /></a>
-              </div>
-              <div class="swiper-slide">
-                <a href="#"><img src="images/banner/banner_04.jpg" alt="banner4" /></a>
-              </div>
-              <div class="swiper-slide">
-                <a href="#"><img src="images/banner/banner_05.jpg" alt="banner5" /></a>
-              </div>
-              <div class="swiper-slide">
-                <a href="#"><img src="images/banner/banner_06.jpg" alt="banner6" /></a>
-              </div>
-              <div class="swiper-slide">
-                <a href="#"><img src="images/banner/banner_07.jpg" alt="banner7" /></a>
-              </div>
-              <div class="swiper-slide">
-                <a href="#"><img src="images/banner/banner_08.jpg" alt="banner8" /></a>
-              </div>
-            </div>
-            <div class="swiper-pagination banner-pagination"></div>
-          </div>
-        </div>
-      </section>
-      <section id="family">
-        <h2 class="hidden"><a href="#">관련 사이트</a></h2>
-        <select class="selectpicker">
-          <option value="" disabled selected>관련 사이트</option>
-          <option value="0">석수도서관</option>
-          <option value="1">만안도서관</option>
-          <option value="2">박달도서관</option>
-          <option value="3">호계도서관</option>
-          <option value="4">비산도서관</option>
-          <option value="5">어린이도서관</option>
-          <option value="6">벌말도서관</option>
-          <option value="7">관양도서관</option>
-          <option value="8">삼덕도서관</option>
-          <option value="9">안양의 역사</option>
-          <option value="10">안양8경</option>
-          <option value="11">안양포도</option>
-        </select>
-      </section>
+  <div class="banner_and_familysite center_wrap">
+    <div class="banner_section js-banner_section">
+      <div class="slider_wrap">
+        <ul class="slider js-slider animated">
+          <li class="slide">
+            <a href="https://www.dlibrary.go.kr/" target="_blank">
+              <img src="images/banner_01.jpg" alt="국가전자도서관">
+            </a>
+          </li>
+          <li class="slide">
+            <a href="https://www.nl.go.kr/" target="_blank">
+              <img src="images/banner_02.jpg" alt="국립중앙도서관">
+            </a>
+          </li>
+          <li class="slide">
+            <a href="https://lib.daelim.ac.kr/" target="_blank">
+              <img src="images/banner_03.jpg" alt="대림대학교 수암도서관">
+            </a>
+          </li>
+          <li class="slide">
+            <a href="https://library.sungkyul.ac.kr/" target="_blank">
+              <img src="images/banner_04.jpg" alt="성결대학교 학술정보관">
+            </a>
+          </li>
+          <li class="slide">
+            <a href="https://www.anyang.go.kr/" target="_blank">
+              <img src="images/banner_05.jpg" alt="안양시">
+            </a>
+          </li>
+          <li class="slide">
+            <a href="https://www.copyright.or.kr/" target="_blank">
+              <img src="images/banner_06.jpg" alt="한국저작권위원회">
+            </a>
+          </li>
+          <li class="slide">
+            <a href="https://www.library.kr/" target="_blank">
+              <img src="images/banner_07.jpg" alt="경기도사이버도서관">
+            </a>
+          </li>
+          <li class="slide">
+            <a href="https://www.nlcy.go.kr/" target="_blank">
+              <img src="images/banner_08.jpg" alt="국립어린이청소년도서관">
+            </a>
+          </li>
+        </ul>
+      </div>
+      <ul class="slider_nav js-slider_nav"></ul>
     </div>
-  </div> -->
+    <div class="familysite_section js-familysite_section">
+      <div class="familysite_dropbox js-dropbox">
+        <p class="familysite_select js-dropbox_select">관련 사이트
+          <span class="arrow_box"><img src="images/arrow_down_black.png" alt="화살표"></span>
+        </p>
+        <ul class="familysite_list js-dropbox_list">
+          <li><a href="https://lib.anyang.go.kr/seoksu/" target="_blank">석수도서관</a></li>
+          <li><a href="https://lib.anyang.go.kr/manan/" target="_blank">만안도서관</a></li>
+          <li><a href="https://lib.anyang.go.kr/bakdal/" target="_blank">박달도서관</a></li>
+          <li><a href="https://lib.anyang.go.kr/hogye/" target="_blank">호계도서관</a></li>
+          <li><a href="https://lib.anyang.go.kr/bisan/" target="_blank">비산도서관</a></li>
+          <li><a href="https://lib.anyang.go.kr/child/" target="_blank">어린이도서관</a></li>
+          <li><a href="https://lib.anyang.go.kr/beolmal/" target="_blank">벌말도서관</a></li>
+          <li><a href="https://lib.anyang.go.kr/gwanyang/" target="_blank">관양도서관</a></li>
+          <li><a href="https://lib.anyang.go.kr/samdeok/" target="_blank">삼덕도서관</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
   <?php
     include_once __DIR__. '/include/footer.php';
   ?>
 
   <script>
   window.addEventListener('load', () => {
+    handleDropbox(document.querySelector('.js-search_section'), true);
     visualSlider();
     shortcutIconSlider();
     handleTab(document.querySelector('.js-books_section'));
+    bannerSlider();
+    handleDropbox(document.querySelector('.js-familysite_section'));
   })
   </script>
 </body>

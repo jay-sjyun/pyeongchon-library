@@ -4,8 +4,8 @@ handleNav();
 
 // href 값이 '#'인 A 태그 이동 차단
 document.addEventListener("click", (e) => {
-  const hrefValue = e.target.getAttribute("href");
-  if (hrefValue === "#" || hrefValue === null) {
+  const homeURL = "http://localhost:3000/index.php#";
+  if (e.target.href === homeURL || e.target.parentNode.href === homeURL) {
     e.preventDefault();
   }
 });
@@ -26,7 +26,7 @@ function toggleSlide(elm) {
     : (elm.style.height = 0);
 }
 
-//네비게이션 gnb
+// 네비게이션 gnb
 function handleNav() {
   const $hamburger = document.querySelector(".js-hamburger_menu");
   const $nav = document.querySelector(".js-nav");
@@ -36,24 +36,21 @@ function handleNav() {
   const CLASSNAME_ON = "on";
   const CLASSNAME_SHOW = "show";
 
-  /**
-   * DOM 요소마다 'on' class 제거
-   * @param arr DOM elements array
-   */
+  // DOM 요소마다 'on' class 제거
   function removeClassOn(arr) {
     arr.forEach((elm) => {
       elm.classList.remove(CLASSNAME_ON);
     });
   }
 
-  /**모든 js-depth2_wrap 숨김 */
+  // 모든 js-depth2_wrap 숨김
   function hideAllDepth2() {
     $depth2Elms.forEach((elm) => {
       elm.style.height = 0;
     });
   }
 
-  /**모바일 햄버거 메뉴 토글*/
+  // 모바일 햄버거 메뉴 토글
   function toggleHamburger() {
     const $navBg = document.querySelector(".js-nav_bg");
 
@@ -109,7 +106,44 @@ function handleNav() {
   });
 }
 
-//fade in and out 슬라이더(랜딩 페이지 비주얼)
+/**
+ * 드롭박스 기능
+ * @param area DOM element 영역 지정
+ * @param {boolean} copyItemTxt 선택한 아이템 텍스트 복사(기본 false)
+ */
+function handleDropbox(area, copyItemTxt = false) {
+  const $dropbox = area.querySelector(".js-dropbox");
+  const $toggleBtn = area.querySelector(".js-dropbox_select");
+  const $itemList = area.querySelector(".js-dropbox_list");
+
+  const CLASSNAME_ON = "on";
+
+  function toggleItemList() {
+    $dropbox.classList.toggle(CLASSNAME_ON);
+  }
+
+  function handleItemSelect(e) {
+    if (copyItemTxt) {
+      const itemTxt = e.target.textContent;
+      $toggleBtn.childNodes[0].nodeValue = itemTxt;
+    }
+    if (e.target.matches("li")) {
+      $dropbox.classList.remove(CLASSNAME_ON);
+    }
+  }
+
+  function closeDropbox(e) {
+    if (e.target !== $toggleBtn && e.target !== $itemList) {
+      $dropbox.classList.remove(CLASSNAME_ON);
+    }
+  }
+
+  $toggleBtn.addEventListener("click", toggleItemList);
+  $itemList.addEventListener("click", handleItemSelect);
+  document.body.addEventListener("click", closeDropbox);
+}
+
+// fade in and out 슬라이더(랜딩 페이지 비주얼)
 function visualSlider() {
   const CLASSNAME_ON = "on";
   const $firstSlide = document.querySelector(".visual_section .slider_item:first-child");
@@ -132,7 +166,7 @@ function visualSlider() {
   setInterval(slide, 2000);
 }
 
-//루프 loop 슬라이더(랜딩 페이지 바로가기 아이콘)
+// 루프 loop 슬라이더(랜딩 페이지 바로가기 아이콘)
 function shortcutIconSlider() {
   const $area = document.querySelector(".js-shortcut_icon_section");
   const $slider = $area.querySelector(".js-slider");
@@ -147,11 +181,12 @@ function shortcutIconSlider() {
   const initSliderWidth = slideWidth * slidesCount;
 
   const CLASSNAME_ANIMATED = "animated";
+  const CLASSNAME_CLONE = "clone";
 
   //슬라이드 복사하여 앞에 추가
   $slides.forEach((elm) => {
     const clone = elm.cloneNode(true);
-    clone.classList.add("clone");
+    clone.classList.add(CLASSNAME_CLONE);
     $fragment.appendChild(clone);
   });
   $slider.prepend($fragment);
@@ -159,7 +194,7 @@ function shortcutIconSlider() {
   //슬라이드 복사하여 뒤에 추가
   $slides.forEach((elm) => {
     const clone = elm.cloneNode(true);
-    clone.classList.add("clone");
+    clone.classList.add(CLASSNAME_CLONE);
     $fragment2.appendChild(clone);
   });
   $slider.appendChild($fragment2);
@@ -197,7 +232,10 @@ function shortcutIconSlider() {
   });
 }
 
-//tab 기능 (DOM element 를 인수로 받아 범위를 지정)
+/**
+ * tab 기능
+ * @param area DOM element 영역 지정
+ */
 function handleTab(area) {
   const $dataTabs = [...area.querySelectorAll(".js-data_tabs li")];
   const $dataBoxes = [...area.querySelectorAll(".js-data_box")];
@@ -217,4 +255,88 @@ function handleTab(area) {
   }
 
   area.addEventListener("click", showDataContent);
+}
+
+// 루프 loop 슬라이더 (랜딩 페이지 사이트 배너)
+function bannerSlider() {
+  const $area = document.querySelector(".js-banner_section");
+  const $slider = $area.querySelector(".js-slider");
+  const $slides = [...$slider.querySelectorAll("li")];
+  const $navigation = $area.querySelector(".js-slider_nav");
+  const $cloneFragment = new DocumentFragment();
+  const $navFragment = new DocumentFragment();
+  let currentIdx = 0;
+  const slideWidth = $slides[0].offsetWidth;
+
+  const CLASSNAME_ANIMATED = "animated";
+  const CLASSNAME_ON = "on";
+
+  // clone 및 indicator(dots) 추가
+  $slides.forEach((elm) => {
+    const clone = elm.cloneNode(true);
+    clone.classList.add("clone");
+    $cloneFragment.appendChild(clone);
+
+    const li = document.createElement("li");
+    $navFragment.appendChild(li);
+  });
+  $slider.appendChild($cloneFragment);
+  $navigation.appendChild($navFragment);
+
+  const $navIndicators = [...$navigation.querySelectorAll("li")];
+
+  // 현재 indicator 표시
+  function colorNav() {
+    const navIdx = currentIdx === $slides.length ? 0 : currentIdx;
+
+    $navIndicators.forEach((elm) => elm.classList.remove(CLASSNAME_ON));
+    $navIndicators[navIdx].classList.add(CLASSNAME_ON);
+  }
+
+  // 슬라이더 위치 초기화
+  function resetSliderPosition() {
+    $slider.classList.remove(CLASSNAME_ANIMATED);
+    currentIdx = 0;
+    $slider.style.left = 0;
+  }
+
+  // 슬라이더 이동
+  function moveSlide(index) {
+    $slider.style.left = -index * slideWidth;
+    if (index === $slides.length) {
+      setTimeout(resetSliderPosition, 250);
+    }
+    $slider.classList.add(CLASSNAME_ANIMATED);
+  }
+
+  let intervalID;
+  /**
+   * interval 토글 toggle
+   * @param {boolean} startInterval true: 시작 / false: 정지
+   */
+  function toggleInterval(startInterval) {
+    if (startInterval) {
+      intervalID = setInterval(() => {
+        moveSlide(++currentIdx);
+        colorNav();
+      }, 1000);
+    } else {
+      clearInterval(intervalID);
+    }
+  }
+
+  // indicator 클릭 시 슬라이더 이동
+  function handleSliderNav(e) {
+    toggleInterval(false);
+    if (e.target.matches("li")) {
+      currentIdx = $navIndicators.indexOf(e.target);
+      moveSlide(currentIdx);
+      colorNav();
+    }
+    toggleInterval(true);
+  }
+
+  colorNav(currentIdx);
+  toggleInterval(true);
+  $navigation.addEventListener("click", handleSliderNav);
 }

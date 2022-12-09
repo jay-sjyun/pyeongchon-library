@@ -217,6 +217,7 @@ body {
   overflow: hidden;
   min-width: 95px;
   margin-right: 20px;
+  cursor: pointer;
 }
 .search_section .category_dropbox.on {
   overflow: visible;
@@ -233,6 +234,7 @@ body {
   border: 2px solid #fff;
   border-radius: 5px;
   font-size: 1.7rem;
+  white-space: nowrap;
 }
 .search_section .arrow_box {
   display: flex;
@@ -244,6 +246,7 @@ body {
   width: 20px;
   height: 20px;
   transform: translateY(-50%);
+  pointer-events: none;
 }
 .search_section .arrow_box img {
   transition: all 0.3s ease-in-out;
@@ -543,9 +546,6 @@ body {
 .books_section .tab.on {
   color: #000;
 }
-.books_section .tab:hover {
-  color: #3d5bcb;
-}
 .books_section .books_list_wrap {
   display: none;
 }
@@ -568,13 +568,10 @@ body {
   margin: 0 auto;
 }
 .books_section .book_cover {
-  height: 30vh;
-  min-height: 200px;
-}
-.books_section .book_cover img {
   max-width: initial;
   width: 100%;
-  height: 100%;
+  min-height: 200px;
+  height: 30vh;
   object-fit: cover;
 }
 .books_section .book_title {
@@ -605,10 +602,15 @@ body {
 .books_section .more_link {
   display: block;
   position: absolute;
-  top: 40px;
-  right: 20px;
+  top: 10px;
+  right: 10px;
   width: 2rem;
   height: 2rem;
+}
+
+/*<----------배너 banner---------->*/
+.banner_and_familysite {
+  display: none;
 }
 
 /*<----------푸터 footer---------->*/
@@ -1172,6 +1174,9 @@ body {
     margin: 0 auto 50px;
     padding: 25px 15px;
   }
+  .books_section .tab:hover {
+    color: #3d5bcb;
+  }
   .books_section .books_list_wrap {
     max-width: initial;
   }
@@ -1187,5 +1192,133 @@ body {
   .books_section .more_link {
     top: 25px;
     right: 45px;
+  }
+  /*<----------배너 banner---------->*/
+  .banner_and_familysite {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 50px 0;
+  }
+  .banner_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+  }
+  .banner_section .slider_wrap {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 55px;
+  }
+  .banner_section .slider {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .banner_section .slider.animated {
+    transition: left 0.3s;
+  }
+  .banner_section .slide {
+    flex-shrink: 0;
+    width: 25%;
+  }
+  .banner_section .slide a {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+  }
+  .banner_section .slider_nav {
+    display: flex;
+    margin-top: 25px;
+  }
+  .banner_section .slider_nav li {
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    background: #a7a9ac;
+    margin-right: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .banner_section .slider_nav li:last-child {
+    margin-right: 0;
+  }
+  .banner_section .slider_nav li.on {
+    background: #43b5be;
+  }
+  /*<----------관련 사이트 family site---------->*/
+  .familysite_section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 95px;
+    border-left: 1px solid #a7a9ac;
+  }
+  .familysite_section .familysite_dropbox {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .familysite_section .familysite_dropbox.on {
+    overflow: visible;
+  }
+  .familysite_section .familysite_dropbox.on .arrow_box img {
+    transform: rotate(0deg);
+  }
+  .familysite_section .familysite_dropbox.on .familysite_list {
+    display: block;
+  }
+  .familysite_section .familysite_select {
+    position: relative;
+    padding: 15px 55px 15px 15px;
+    border: 2px solid #d1d3d4;
+    border-radius: 5px;
+    font-size: 1.7rem;
+    font-weight: 600;
+  }
+  .familysite_section .arrow_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    width: 2rem;
+    height: 2rem;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+  .familysite_section .arrow_box img {
+    transform: rotate(180deg);
+    transition: all 0.3s ease-in-out;
+  }
+  .familysite_section .familysite_list {
+    display: none;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    border: 1px solid #d1d3d4;
+    background: #fff;
+    border-radius: 5px;
+    transform: translateY(-100%);
+  }
+  .familysite_section .familysite_list li {
+    width: 100%;
+    padding: 15px 10px;
+    color: #231f20;
+    font-size: 1.7rem;
+    text-align: center;
+  }
+  .familysite_section .familysite_list li:hover, .familysite_section .familysite_list li:active {
+    background: #f3f4f6;
   }
 }/*# sourceMappingURL=main.css.map */

@@ -95,8 +95,8 @@ function handleNav() {
     elm.addEventListener("click", (e) => {
       //이벤트 대상이 아닌 js-depth1_title 배열 취득
       const $otherTitles = [...$depthTitles].filter((title) => !(title === e.target));
-      //이벤트 대상의 형제 노드 취득
-      const $targetDepth2 = elm.parentNode.querySelector(".js-depth2_wrap");
+      //이벤트 대상의 형제 노드(depth2) 취득
+      const $targetDepth2 = elm.nextElementSibling;
 
       removeClassOn($otherTitles);
       e.target.classList.toggle(CLASSNAME_ON);

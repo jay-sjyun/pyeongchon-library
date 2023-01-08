@@ -1,15 +1,15 @@
 <header class="header">
   <div class="center_wrap">
     <!--모바일 유틸리티-->
-    <div class="util_mobile_wrap">
-      <ul class="util_mobile">
-        <li>
+    <div class="util_mobile_wrap js-util_mobile_wrap">
+      <ul class="util_mobile js-util_mobile">
+        <li class="js-signin_menu">
           <img src="images/login.png" alt="로그인" />
-          <a href="#">로그인</a>
+          <a href="signin.php">로그인</a>
         </li>
-        <li>
+        <li class="js-signup_menu">
           <img src="images/account.png" alt="회원가입" />
-          <a href="#">회원가입</a>
+          <a href="signup.php">회원가입</a>
         </li>
       </ul>
     </div>
@@ -20,14 +20,14 @@
         </a>
       </h1>
       <!--모바일 외 유틸리티-->
-      <ul class="util">
-        <li>
+      <ul class="util js-util">
+        <li class="js-signin_menu">
           <img src="images/login.png" alt="로그인" />
-          <a href="#">로그인</a>
+          <a href="signin.php">로그인</a>
         </li>
-        <li>
+        <li class="js-signup_menu">
           <img src="images/account.png" alt="회원가입" />
-          <a href="#">회원가입</a>
+          <a href="signup.php">회원가입</a>
         </li>
         <li>
           <img src="images/sitemap.png" alt="사이트맵" />

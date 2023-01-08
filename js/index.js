@@ -1,10 +1,14 @@
 "use strict";
 
+const URL = "https://my-json-server.typicode.com/dev-yun0525/fakedb/libUserAccounts";
+const LOCALSTORAGE_KEY_LIB_USER = "currentLibUser";
+const currentUser = localStorage.getItem(LOCALSTORAGE_KEY_LIB_USER);
+
 handleNav();
 
 // href 값이 '#'인 A 태그 이동 차단
 document.addEventListener("click", (e) => {
-  const homeURL = "http://localhost:3000/index.php#";
+  const homeURL = "http://pyeongchonlib.dothome.co.kr/index.php#";
   if (e.target.href === homeURL || e.target.parentNode.href === homeURL) {
     e.preventDefault();
   }
@@ -35,6 +39,7 @@ function handleNav() {
 
   const CLASSNAME_ON = "on";
   const CLASSNAME_SHOW = "show";
+  const CLASSNAME_HIDDEN = "hidden";
 
   // DOM 요소마다 'on' class 제거
   function removeClassOn(arr) {
@@ -55,11 +60,11 @@ function handleNav() {
     const $navBg = document.querySelector(".js-nav_bg");
 
     function toggleClassOn(elm) {
-      //'on' class => css transition 처리
+      // 'on' class => css transition 처리
       elm.classList.toggle(CLASSNAME_ON);
     }
     function toggleClassShow(elm) {
-      //'show' class => css display 처리
+      // 'show' class => css display 처리
       elm.classList.toggle(CLASSNAME_SHOW);
     }
 
@@ -88,7 +93,7 @@ function handleNav() {
 
   $hamburger.addEventListener("click", toggleHamburger);
 
-  //모바일 아코디언 nav 메뉴
+  // 모바일 아코디언 nav 메뉴
   $depthTitles.forEach((elm) => {
     // PC 해상도는 무시
     if (screen.width >= 1132) return;
@@ -104,6 +109,36 @@ function handleNav() {
       toggleSlide($targetDepth2);
     });
   });
+
+  // 로그인 시 유틸리티 메뉴
+  if (currentUser !== null) {
+    // 모바일
+    const $utilMenu = screen.width < 768 ? document.querySelector(".js-util_mobile") : document.querySelector(".js-util");
+    const $signInMenu = $utilMenu.querySelector(".js-signin_menu");
+    const $signUpMenu = $utilMenu.querySelector(".js-signup_menu");
+
+    $signInMenu.classList.add(CLASSNAME_HIDDEN);
+    $signUpMenu.classList.add(CLASSNAME_HIDDEN);
+
+    const $signOutMenu = document.createElement("li");
+    const img = document.createElement("img");
+    img.setAttribute("src", "images/logout.png");
+    img.setAttribute("alt", "로그아웃");
+    $signOutMenu.append(img);
+    const link = document.createElement("a");
+    link.textContent = `로그아웃`;
+    link.setAttribute("href", "index.php");
+    $signOutMenu.append(link);
+    // 로그아웃 시 로컬스토리지 데이터 삭제
+    $signOutMenu.addEventListener("click", () => {
+      localStorage.removeItem(LOCALSTORAGE_KEY_LIB_USER);
+    });
+    $utilMenu.prepend($signOutMenu);
+
+    const $greeting = document.createElement("li");
+    $greeting.textContent = `반갑습니다, ${currentUser}님`;
+    $utilMenu.prepend($greeting);
+  }
 }
 
 /**
@@ -339,4 +374,133 @@ function bannerSlider() {
   colorNav(currentIdx);
   toggleInterval(true);
   $navigation.addEventListener("click", handleSliderNav);
+}
+
+// 회원가입 및 로그인
+function handleAccount(action) {
+  const $signUpForm = document.querySelector(".js-signup_form");
+  const $signInForm = document.querySelector(".js-signin_form");
+  const $userid = document.querySelector(".js-signup_userid");
+  const $password = document.querySelector(".js-signup_password");
+  const $passwordCheck = document.querySelector(".js-signup_password_check");
+
+  const ACTION_SIGNUP = "signup";
+  const ACTION_SIGNIN = "signin";
+  const CLASSNAME_ON = "on";
+  const LOCALSTORAGE_KEY_ACCOUNTS = "libUserAccounts";
+
+  // 에러 출력
+  function paintError(element, message) {
+    element.nextElementSibling.textContent = message;
+    element.classList.add(CLASSNAME_ON);
+  }
+
+  // 에러 지우기
+  function removeError(element) {
+    element.nextElementSibling.textContent = "";
+    element.classList.remove(CLASSNAME_ON);
+  }
+
+  /**
+   * 사용자 계정 생성 클래스
+   */
+  class UserAccount {
+    constructor(username, password) {
+      this.id = username;
+      this.password = password;
+    }
+
+    /**
+     * 로컬스토리지에 저장 메서드
+     */
+    saveLocalStorage() {
+      let libUserAccounts = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY_ACCOUNTS)) ?? [];
+      libUserAccounts.push(this);
+      localStorage.setItem(LOCALSTORAGE_KEY_ACCOUNTS, JSON.stringify(libUserAccounts));
+    }
+  }
+
+  // Input 유효성 검사
+  async function validateInputs() {
+    const usernameRegExp = /^[a-zA-Z0-9]{6,20}$/g;
+    const passwordRegExp = /^[^\s]{6,20}$/g;
+    const localStorageAccounts = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY_ACCOUNTS)) ?? [];
+    let duplicatedLocalAccounts = [];
+
+    // DB에서 중복되는 아이디 조회
+    const idCheckResponse = await fetch(`${URL}/${$userid.value}`);
+    const dbData = await idCheckResponse.json();
+
+    // 로컬스토리지에서 아이디가 중복되는 계정 추출
+    localStorageAccounts.forEach((account) => {
+      if (account.id === $userid.value) {
+        duplicatedLocalAccounts.push(account);
+      }
+    });
+
+    // 아이디 검사
+    if (!usernameRegExp.test($userid.value)) {
+      paintError($userid, `아이디는 공백없이 6~20자의 영문자 또는 영문자/숫자 조합으로 입력해주세요.`);
+    } else if (action === ACTION_SIGNUP && (dbData.id === $userid.value || duplicatedLocalAccounts.length > 0)) {
+      paintError($userid, `이미 사용 중인 아이디입니다.`);
+    } else if (action === ACTION_SIGNIN && dbData.id !== $userid.value && duplicatedLocalAccounts.length === 0) {
+      paintError($userid, `등록되지 않은 아이디입니다.`);
+    } else {
+      console.log("ID is validated!!!");
+      removeError($userid);
+    }
+
+    // 비밀번호 검사
+    if (action === ACTION_SIGNUP && !passwordRegExp.test($password.value)) {
+      paintError($password, `비밀번호는 공백없이 6~20자로 입력해주세요.`);
+    } else if (action === ACTION_SIGNIN && $userid.nextElementSibling.textContent !== "") {
+      // 등록되지 않은 아이디는 비밀번호 일치 검사 중단
+      removeError($password);
+    } else if (action === ACTION_SIGNIN && dbData.password !== $password.value && duplicatedLocalAccounts[0]?.password !== $password.value) {
+      paintError($password, `비밀번호가 일치하지 않습니다.`);
+    } else {
+      removeError($password);
+    }
+
+    // 유효성 검사 통과 후 로그인
+    if (action === ACTION_SIGNIN && $userid.nextElementSibling.textContent === "" && $password.nextElementSibling.textContent === "") {
+      localStorage.setItem(LOCALSTORAGE_KEY_LIB_USER, $userid.value);
+      setTimeout(() => {
+        window.location.href = "index.php";
+      }, 200);
+    }
+
+    // 회원가입이 아니면 중단/종료
+    if (action !== ACTION_SIGNUP) return;
+
+    // 비밀번호 재확인
+    if ($password.value !== $passwordCheck.value) {
+      paintError($passwordCheck, `비밀번호가 일치하지 않습니다.`);
+    } else {
+      removeError($passwordCheck);
+    }
+
+    // 유효성 검사 통과 후 회원정보 저장
+    if ($userid.nextElementSibling.textContent === "" && $password.nextElementSibling.textContent === "" && $passwordCheck.nextElementSibling.textContent === "") {
+      // 회원계정 생성
+      const userAccount = new UserAccount($userid.value, $password.value);
+      userAccount.saveLocalStorage();
+      setTimeout(() => {
+        alert("회원가입이 완료되었습니다. 로그인해주세요.");
+        window.location.href = "index.php";
+      }, 200);
+    }
+  }
+
+  if (action === ACTION_SIGNUP) {
+    $signUpForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      validateInputs().catch(console.error);
+    });
+  } else if (action === ACTION_SIGNIN) {
+    $signInForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      validateInputs().catch(console.error);
+    });
+  }
 }

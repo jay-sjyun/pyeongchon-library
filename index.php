@@ -374,7 +374,6 @@
       </div>
     </div>
   </div>
-
   <?php
     include_once __DIR__. '/include/footer.php';
   ?>
@@ -387,7 +386,7 @@
     handleTab(document.querySelector('.js-books_section'));
     bannerSlider();
     handleDropbox(document.querySelector('.js-familysite_section'));
-  })
+  });
   </script>
 </body>
 

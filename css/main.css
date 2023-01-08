@@ -45,7 +45,7 @@ body {
 .header .util_mobile_wrap {
   display: flex;
   justify-content: end;
-  padding: 7px 10px;
+  padding: 10px;
   background: #32393f;
 }
 .header .util_mobile {
@@ -56,17 +56,22 @@ body {
 .header .util_mobile li {
   display: flex;
   align-items: center;
-  margin-right: 8px;
+  margin-right: 10px;
+  color: #fff;
+  font-size: 1.3rem;
+}
+.header .util_mobile li.hidden {
+  display: none;
 }
 .header .util_mobile li:last-child {
   margin-right: 0;
 }
 .header .util_mobile li img {
-  margin-right: 4px;
-  width: 1rem;
+  margin-right: 5px;
+  width: 1.3rem;
 }
 .header .util_mobile li a {
-  font-size: 1rem;
+  font-size: 1.3rem;
   color: #fff;
 }
 .header .header_wrap {
@@ -674,6 +679,204 @@ body {
 }
 
 /*==============================================
+  회원가입 페이지
+================================================*/
+/*<----------페이지 정보 page info---------->*/
+.page_info_wrap {
+  background: linear-gradient(to right, #43b5be, #3d5bcb);
+}
+.page_info_wrap .page_title {
+  padding: 25px 10px;
+  color: #fff;
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+
+/*<----------로그인 폼 signin form---------->*/
+.signup_section .center_wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+  padding: 50px 10px;
+}
+.signup_section .signup_form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  padding: 30px 10px;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0 0 5px rgba(109, 110, 113, 0.8);
+}
+.signup_section .signup_label {
+  margin-bottom: 10px;
+  padding-left: 10px;
+  color: #231f20;
+  font-size: 1.7rem;
+}
+.signup_section .signup_input {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #f3f4f6;
+  background: #f3f4f6;
+  font-size: 1.7rem;
+  box-sizing: border-box;
+  transition: border 0.1s;
+}
+.signup_section .signup_input[type=password] {
+  font-family: "나눔고딕";
+}
+.signup_section .signup_input[type=password]::placeholder {
+  font-family: "NanumSquare", sans-serif;
+}
+.signup_section .signup_input.on {
+  margin-bottom: 10px;
+  border: 1px solid red;
+}
+.signup_section .signup_input.on + .error_txt {
+  display: block;
+  margin-bottom: 20px;
+}
+.signup_section .error_txt {
+  display: none;
+  padding: 0 10px;
+  color: red;
+  font-size: 1.3rem;
+  word-break: keep-all;
+}
+.signup_section .btn_signup {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #31a1ab;
+  color: #fff;
+  font-size: 1.7rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.signup_section .signup_info {
+  max-width: 400px;
+  margin-top: 20px;
+  padding: 20px 10px;
+  border: 1px solid #d1d3d4;
+  border-radius: 5px;
+  background: #fff;
+  color: #231f20;
+  font-size: 1.3rem;
+}
+.signup_section .guide1 {
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.signup_section .db_link {
+  display: block;
+  margin-bottom: 10px;
+  color: #3d5bcb;
+}
+.signup_section .guide2 {
+  word-break: keep-all;
+  line-height: 1.3;
+}
+
+/*==============================================
+  로그인 페이지
+================================================*/
+/*<----------로그인 폼 signin form---------->*/
+.signin_section .center_wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+  padding: 50px 10px;
+}
+.signin_section .signin_form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  padding: 30px 10px;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0 0 5px rgba(109, 110, 113, 0.8);
+}
+.signin_section .signin_label {
+  margin-bottom: 10px;
+  padding-left: 10px;
+  color: #231f20;
+  font-size: 1.7rem;
+}
+.signin_section .signin_input {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #f3f4f6;
+  background: #f3f4f6;
+  font-size: 1.7rem;
+}
+.signin_section .signin_input[type=password] {
+  font-family: "나눔고딕";
+}
+.signin_section .signin_input[type=password]::placeholder {
+  font-family: "NanumSquare", sans-serif;
+}
+.signin_section .signin_input.on {
+  margin-bottom: 10px;
+  border: 1px solid red;
+}
+.signin_section .signin_input.on + .error_txt {
+  display: block;
+  margin-bottom: 20px;
+}
+.signin_section .error_txt {
+  display: none;
+  padding: 0 10px;
+  color: red;
+  font-size: 1.3rem;
+  word-break: keep-all;
+}
+.signin_section .btn_signin {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #3d5bcb;
+  color: #fff;
+  font-size: 1.7rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.signin_section .btn_signup {
+  padding: 15px;
+  background-color: #31a1ab;
+  color: #fff;
+  font-size: 1.7rem;
+  font-weight: 600;
+  text-align: center;
+}
+.signin_section .signup_info {
+  max-width: 400px;
+  margin-top: 20px;
+  padding: 20px 10px;
+  border: 1px solid #d1d3d4;
+  border-radius: 5px;
+  background: #fff;
+  color: #231f20;
+  font-size: 1.3rem;
+}
+.signin_section .guide1 {
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.signin_section .db_link {
+  display: block;
+  margin-bottom: 10px;
+  color: #3d5bcb;
+}
+.signin_section .guide2 {
+  word-break: keep-all;
+  line-height: 1.3;
+}
+
+/*==============================================
 |||||||||||||||||||||||||||||||||||||||||||||||||
   태블릿 Tablet
 |||||||||||||||||||||||||||||||||||||||||||||||||
@@ -705,17 +908,22 @@ body {
     display: flex;
     align-items: center;
     margin-right: 10px;
+    color: #6d6e71;
+    font-size: 1.4rem;
+  }
+  .header .util li.hidden {
+    display: none;
   }
   .header .util li:last-child {
     margin-right: 0;
   }
   .header .util li img {
-    margin-right: 4px;
     width: 1.4rem;
+    margin-right: 4px;
   }
   .header .util li a {
-    font-size: 1.4rem;
     color: #6d6e71;
+    font-size: 1.4rem;
   }
   .header .hamburger_menu {
     padding: 7px 9px;

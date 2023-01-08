@@ -112,7 +112,6 @@ function handleNav() {
 
   // 로그인 시 유틸리티 메뉴
   if (currentUser !== null) {
-    // 모바일
     const $utilMenu = screen.width < 768 ? document.querySelector(".js-util_mobile") : document.querySelector(".js-util");
     const $signInMenu = $utilMenu.querySelector(".js-signin_menu");
     const $signUpMenu = $utilMenu.querySelector(".js-signup_menu");
@@ -422,7 +421,7 @@ function handleAccount(action) {
 
   // Input 유효성 검사
   async function validateInputs() {
-    const usernameRegExp = /^[a-zA-Z0-9]{6,20}$/g;
+    const usernameRegExp = /^(?=.*[a-zA-Z])[a-zA-Z0-9]{6,20}$/g;
     const passwordRegExp = /^[^\s]{6,20}$/g;
     const localStorageAccounts = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY_ACCOUNTS)) ?? [];
     let duplicatedLocalAccounts = [];
@@ -440,7 +439,7 @@ function handleAccount(action) {
 
     // 아이디 검사
     if (!usernameRegExp.test($userid.value)) {
-      paintError($userid, `아이디는 공백없이 6~20자의 영문자 또는 영문자/숫자 조합으로 입력해주세요.`);
+      paintError($userid, `아이디는 공백없이 6~20자의 알파벳 또는 알파벳/숫자 조합으로 입력해주세요.`);
     } else if (action === ACTION_SIGNUP && (dbData.id === $userid.value || duplicatedLocalAccounts.length > 0)) {
       paintError($userid, `이미 사용 중인 아이디입니다.`);
     } else if (action === ACTION_SIGNIN && dbData.id !== $userid.value && duplicatedLocalAccounts.length === 0) {

@@ -8,12 +8,12 @@
 
 # 구현 기능
 1. 사용자 기억 : localStorage에 현재 사용자를 저장하여 새로고침시에도 사용자를 기억
-1. 회원가입 : 
+1. 회원가입 :  
 RegExp 활용하여 유효성 검사  
 DB와 localStorage에 있는 사용자 아이디 중복 검사(AJAX, REST API)  
 DB와 중복 검사시 비동기 방식을 async/await 으로 처리하여 동기로 처리  
 모든 검사 통과 시 localStorage에 사용자 정보 저장 및 홈으로 이동  
-1. 로그인 : 
+1. 로그인 :  
 로그인 시 DB와 localStorage에 저장된 아이디인지 검사  
 저장된 아이디인 경우 비밀번호 대조  
 모든 검사 통과 시 localStorage에 현재 사용자로 저장하고 홈으로 이동  

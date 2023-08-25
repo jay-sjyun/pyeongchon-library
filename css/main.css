@@ -456,7 +456,7 @@ body {
 }
 .notice_section .notice_list .notice_title::before {
   display: inline-block;
-  margin-right: 3px;
+  margin-right: 6px;
   width: 0.6rem;
   height: 0.6rem;
   border-radius: 50%;
@@ -692,7 +692,7 @@ body {
   font-weight: 600;
 }
 
-/*<----------로그인 폼 signin form---------->*/
+/*<----------회원가입 폼 signup form---------->*/
 .signup_section .center_wrap {
   display: flex;
   flex-direction: column;
@@ -703,23 +703,27 @@ body {
 .signup_section .signup_form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
   max-width: 400px;
-  padding: 30px 10px;
+  padding: 30px 16px;
   border-radius: 5px;
   background: #fff;
   box-shadow: 0 0 5px rgba(109, 110, 113, 0.8);
 }
 .signup_section .signup_label {
+  width: 100%;
   margin-bottom: 10px;
   padding-left: 10px;
   color: #231f20;
   font-size: 1.7rem;
 }
 .signup_section .signup_input {
+  width: 100%;
   margin-bottom: 20px;
   padding: 15px;
   border: 1px solid #f3f4f6;
+  border-radius: 4px;
   background: #f3f4f6;
   font-size: 1.7rem;
   box-sizing: border-box;
@@ -747,13 +751,17 @@ body {
   word-break: keep-all;
 }
 .signup_section .btn_signup {
+  width: 100%;
+  max-width: 256px;
   margin-top: 20px;
-  padding: 15px;
+  padding: 16px 24px;
+  border-radius: calc(1.7rem + 30px);
   background-color: #31a1ab;
   color: #fff;
   font-size: 1.7rem;
   font-weight: 600;
   cursor: pointer;
+  box-sizing: border-box;
 }
 .signup_section .signup_info {
   max-width: 400px;
@@ -793,23 +801,27 @@ body {
 .signin_section .signin_form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
   max-width: 400px;
-  padding: 30px 10px;
+  padding: 30px 16px;
   border-radius: 5px;
   background: #fff;
   box-shadow: 0 0 5px rgba(109, 110, 113, 0.8);
 }
 .signin_section .signin_label {
+  width: 100%;
   margin-bottom: 10px;
   padding-left: 10px;
   color: #231f20;
   font-size: 1.7rem;
 }
 .signin_section .signin_input {
+  width: 100%;
   margin-bottom: 20px;
   padding: 15px;
   border: 1px solid #f3f4f6;
+  border-radius: 4px;
   background: #f3f4f6;
   font-size: 1.7rem;
 }
@@ -835,24 +847,33 @@ body {
   word-break: keep-all;
 }
 .signin_section .btn_signin {
+  width: 100%;
+  max-width: 256px;
   margin-top: 20px;
   margin-bottom: 20px;
-  padding: 15px;
+  padding: 16px 24px;
+  border-radius: calc(1.7rem + 30px);
   background-color: #3d5bcb;
   color: #fff;
   font-size: 1.7rem;
   font-weight: 600;
   cursor: pointer;
+  box-sizing: border-box;
 }
 .signin_section .btn_signup {
-  padding: 15px;
+  width: 100%;
+  max-width: 256px;
+  padding: 16px 24px;
+  border-radius: calc(1.7rem + 30px);
   background-color: #31a1ab;
   color: #fff;
   font-size: 1.7rem;
   font-weight: 600;
   text-align: center;
+  box-sizing: border-box;
 }
 .signin_section .signup_info {
+  width: 100%;
   max-width: 400px;
   margin-top: 20px;
   padding: 20px 10px;
@@ -992,7 +1013,7 @@ body {
     font-size: 1.7rem;
   }
   .shortcut_icon_section .prev_btn,
-.shortcut_icon_section .next_btn {
+  .shortcut_icon_section .next_btn {
     width: 48px;
     height: 48px;
   }
@@ -1129,7 +1150,7 @@ body {
     text-align: left;
   }
   .footer .contact .tel,
-.footer .contact .fax {
+  .footer .contact .fax {
     display: inline-block;
     margin-right: 15px;
   }
@@ -1325,7 +1346,7 @@ body {
     max-height: 110px;
   }
   .shortcut_icon_section .prev_btn,
-.shortcut_icon_section .next_btn {
+  .shortcut_icon_section .next_btn {
     width: 60px;
     height: 60px;
   }
@@ -1335,7 +1356,7 @@ body {
     align-items: center;
   }
   .notice_section {
-    max-width: 50%;
+    width: 50%;
     margin: 0;
     padding: 20px 30px;
   }
@@ -1345,14 +1366,16 @@ body {
   .notice_section .notice_list {
     padding: 25px 0;
   }
-  .notice_section .notice_list li {
-    padding: 20px 0;
+  .notice_section .notice_list .notice_title {
+    padding: 10px 0;
+    text-underline-offset: 4px;
   }
-  .notice_section .notice_list .notice_title a:hover, .notice_section .notice_list .notice_title a:focus {
+  .notice_section .notice_list .notice_title:hover, .notice_section .notice_list .notice_title:focus {
     text-decoration: underline;
   }
   .notice_section .notice_list .notice_date {
     margin-left: 20px;
+    padding: 10px 0;
   }
   /*<----------홈 바로가기 블럭 shortcut block---------->*/
   .shortcut_block_section {

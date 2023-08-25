@@ -529,7 +529,7 @@ body {
 
       &::before {
         display: inline-block;
-        margin-right: 3px;
+        margin-right: 6px;
         width: 0.6rem;
         height: 0.6rem;
         border-radius: 50%;
@@ -813,7 +813,7 @@ body {
   }
 }
 
-/*<----------로그인 폼 signin form---------->*/
+/*<----------회원가입 폼 signup form---------->*/
 .signup_section {
   .center_wrap {
     display: flex;
@@ -825,15 +825,17 @@ body {
   .signup_form {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100%;
     max-width: 400px;
-    padding: 30px 10px;
+    padding: 30px 16px;
     border-radius: 5px;
     background: $colorWH1;
     box-shadow: 0 0 5px rgba($color: $colortxtGR1, $alpha: 0.8);
   }
 
   .signup_label {
+    width: 100%;
     margin-bottom: 10px;
     padding-left: 10px;
     color: $colorBK1;
@@ -841,9 +843,11 @@ body {
   }
 
   .signup_input {
+    width: 100%;
     margin-bottom: 20px;
     padding: 15px;
     border: 1px solid $colorLGR1;
+    border-radius: 4px;
     background: $colorLGR1;
     font-size: 1.7rem;
     box-sizing: border-box;
@@ -877,13 +881,17 @@ body {
   }
 
   .btn_signup {
+    width: 100%;
+    max-width: 256px;
     margin-top: 20px;
-    padding: 15px;
+    padding: 16px 24px;
+    border-radius: calc(1.7rem + 30px);
     background-color: $colorTGN2;
     color: $colorWH1;
     font-size: 1.7rem;
     font-weight: 600;
     cursor: pointer;
+    box-sizing: border-box;
   }
 
   .signup_info {
@@ -926,18 +934,21 @@ body {
     min-height: 100%;
     padding: 50px 10px;
   }
+
   .signin_form {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100%;
     max-width: 400px;
-    padding: 30px 10px;
+    padding: 30px 16px;
     border-radius: 5px;
     background: $colorWH1;
     box-shadow: 0 0 5px rgba($color: $colortxtGR1, $alpha: 0.8);
   }
 
   .signin_label {
+    width: 100%;
     margin-bottom: 10px;
     padding-left: 10px;
     color: $colorBK1;
@@ -945,9 +956,11 @@ body {
   }
 
   .signin_input {
+    width: 100%;
     margin-bottom: 20px;
     padding: 15px;
     border: 1px solid $colorLGR1;
+    border-radius: 4px;
     background: $colorLGR1;
     font-size: 1.7rem;
 
@@ -979,26 +992,35 @@ body {
   }
 
   .btn_signin {
+    width: 100%;
+    max-width: 256px;
     margin-top: 20px;
     margin-bottom: 20px;
-    padding: 15px;
+    padding: 16px 24px;
+    border-radius: calc(1.7rem + 30px);
     background-color: $colorBL1;
     color: $colorWH1;
     font-size: 1.7rem;
     font-weight: 600;
     cursor: pointer;
+    box-sizing: border-box;
   }
 
   .btn_signup {
-    padding: 15px;
+    width: 100%;
+    max-width: 256px;
+    padding: 16px 24px;
+    border-radius: calc(1.7rem + 30px);
     background-color: $colorTGN2;
     color: $colorWH1;
     font-size: 1.7rem;
     font-weight: 600;
     text-align: center;
+    box-sizing: border-box;
   }
 
   .signup_info {
+    width: 100%;
     max-width: 400px;
     margin-top: 20px;
     padding: 20px 10px;
@@ -1599,7 +1621,7 @@ body {
   }
 
   .notice_section {
-    max-width: 50%;
+    width: 50%;
     margin: 0;
     padding: 20px 30px;
 
@@ -1610,11 +1632,13 @@ body {
     .notice_list {
       padding: 25px 0;
 
-      li {
-        padding: 20px 0;
-      }
+      // li {
+      //   padding: 20px 0;
+      // }
 
-      .notice_title a {
+      .notice_title {
+        padding: 10px 0;
+        text-underline-offset: 4px;
         &:hover,
         &:focus {
           text-decoration: underline;
@@ -1623,6 +1647,7 @@ body {
 
       .notice_date {
         margin-left: 20px;
+        padding: 10px 0;
       }
     }
   }

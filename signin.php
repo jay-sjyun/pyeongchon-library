@@ -25,13 +25,13 @@
       </form>
       <div class="signup_info">
         <p class="guide1">
-          사용중인 (DB에 저장중인) 계정 정보:<br>
+          이미 사용 중인 회원 정보 (임시 DB에 저장) :<br>
           아이디: 'unity01', 비밀번호 '123123'<br>
           아이디: 'welcome', 비밀번호 '123!@#qweQWE'
         </p>
         <a href="https://my-json-server.typicode.com/dev-yun0525/fakedb/libUserAccounts" target="_blank"
-          class="db_link">fake DB 링크 (클릭)</a>
-        <p class="guide2">기존에 사용중인 계정정보로 로그인 하시거나, 새로 가입하신 회원은 localStorage에 저장된 정보로 로그인하실 수 있습니다.</p>
+          class="db_link">임시 DB 바로가기</a>
+        <!-- <p class="guide2">기존에 사용중인 계정정보로 로그인 하시거나, 새로 가입하신 회원은 localStorage에 저장된 정보로 로그인하실 수 있습니다.</p> -->
       </div>
     </div>
   </div>

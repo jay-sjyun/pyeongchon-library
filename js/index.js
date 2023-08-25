@@ -1,6 +1,5 @@
 "use strict";
 
-const URL = "https://my-json-server.typicode.com/dev-yun0525/fakedb/libUserAccounts";
 const LOCALSTORAGE_KEY_LIB_USER = "currentLibUser";
 const currentUser = localStorage.getItem(LOCALSTORAGE_KEY_LIB_USER);
 
@@ -375,6 +374,104 @@ function bannerSlider() {
   $navigation.addEventListener("click", handleSliderNav);
 }
 
+// 공지사항 (랜딩 페이지)
+const notice = () => {
+  const $noticeList = document.querySelector(".js-notice_list");
+  const $newsFragment = document.createDocumentFragment();
+  const noticeURL = "https://my-json-server.typicode.com/dev-yun0525/fakedb/notice";
+
+  // 공지사항 html 요소 생성
+  const paintNotice = (newsObj) => {
+    const $li = document.createElement("li");
+    // 공지사항 타이틀
+    const $anchor = document.createElement("a");
+    $anchor.textContent = newsObj.title;
+    $anchor.setAttribute("href", "#");
+    $anchor.classList.add("notice_title");
+    // 공지사항 작성 날짜
+    const $span = document.createElement("span");
+    $span.textContent = newsObj.date;
+    $span.classList.add("notice_date");
+    $li.append($anchor, $span);
+    $newsFragment.appendChild($li);
+  };
+
+  // 공지사항 데이터 불러오기
+  const fetchNoticeData = async () => {
+    const response = await fetch(noticeURL);
+    const data = await response.json();
+    // 내림차순으로 정렬 뒤 가장 최근 게시글 5개만 추출
+    const sortedData = data.sort((a, b) => b["id"] - a["id"]).slice(0, 5);
+
+    sortedData.forEach((obj) => paintNotice(obj));
+    $noticeList.appendChild($newsFragment);
+  };
+
+  fetchNoticeData();
+};
+
+// 도서 소개 (랜딩 페이지)
+const books = () => {
+  const $bestRentList = document.querySelector('.js-data_box[data-content="best"] .books_list');
+  const $bestRentFragment = document.createDocumentFragment();
+  const $recommendedList = document.querySelector('.js-data_box[data-content="recommend"] .books_list');
+  const $recommendedFragment = document.createDocumentFragment();
+  const $newArrivalList = document.querySelector('.js-data_box[data-content="new"] .books_list');
+  const $newArrivalFragment = document.createDocumentFragment();
+
+  const booksURL = "https://my-json-server.typicode.com/jay-sjyun/fakedb/books";
+
+  // 도서 소개 html 요소 생성
+  const paintBooks = (bookObj, fragment) => {
+    const $li = document.createElement("li");
+    const $anchor = document.createElement("a");
+    $anchor.setAttribute("href", "#");
+    $anchor.classList.add("book_content");
+    // 책 표지
+    const $img = document.createElement("img");
+    console.log(`${bookObj.cover}.jpg`);
+    $img.setAttribute("src", `${bookObj.cover}.jpg`);
+    $img.setAttribute("alt", bookObj.title);
+    $img.classList.add("book_cover");
+    // 도서 제목
+    const $bookTitle = document.createElement("strong");
+    $bookTitle.textContent = bookObj.title;
+    $bookTitle.classList.add("book_title");
+    // 도서 정보
+    const $bookInfo = document.createElement("span");
+    $bookInfo.textContent = `${bookObj.author} 지음 | ${bookObj.publisher}`;
+    $bookInfo.classList.add("book_info");
+    // 출판 연도
+    const $bookYear = document.createElement("span");
+    $bookYear.textContent = bookObj.publishedYear;
+    $bookYear.classList.add("book_date");
+
+    $anchor.append($img, $bookTitle, $bookInfo, $bookYear);
+    $li.appendChild($anchor);
+    fragment.appendChild($li);
+  };
+
+  // 도서 데이터 불러오기
+  const fetchBooksData = async () => {
+    const response = await fetch(booksURL);
+    const data = await response.json();
+    // 대출베스트 데이터 추출 및 후속 처리
+    const bestRentData = data.sort((a, b) => b["rent"] - a["rent"]).slice(0, 4);
+    bestRentData.forEach((obj) => paintBooks(obj, $bestRentFragment));
+    $bestRentList.appendChild($bestRentFragment);
+    // 추천도서 데이터 추출 및 후속 처리
+    const recommendedData = data.sort((a, b) => b["likes"] - a["likes"]).slice(0, 4);
+    recommendedData.forEach((obj) => paintBooks(obj, $recommendedFragment));
+    $recommendedList.appendChild($recommendedFragment);
+    // 신착도서 데이터 추출 및 후속 처리
+    const newArrivalData = data.sort((a, b) => b["arrival"] - a["arrival"]).slice(0, 4);
+    newArrivalData.forEach((obj) => paintBooks(obj, $newArrivalFragment));
+    $newArrivalList.appendChild($newArrivalFragment);
+  };
+
+  fetchBooksData();
+};
+
 // 회원가입 및 로그인
 function handleAccount(action) {
   const $signUpForm = document.querySelector(".js-signup_form");
@@ -425,6 +522,8 @@ function handleAccount(action) {
     const passwordRegExp = /^[^\s]{6,20}$/g;
     const localStorageAccounts = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY_ACCOUNTS)) ?? [];
     let duplicatedLocalAccounts = [];
+
+    const URL = "https://my-json-server.typicode.com/dev-yun0525/fakedb/userAccounts";
 
     // DB에서 중복되는 아이디 조회
     const idCheckResponse = await fetch(`${URL}/${$userid.value}`);
@@ -486,7 +585,7 @@ function handleAccount(action) {
       userAccount.saveLocalStorage();
       setTimeout(() => {
         alert("회원가입이 완료되었습니다. 로그인해주세요.");
-        window.location.href = "index.php";
+        window.location.href = "signin.php";
       }, 200);
     }
   }

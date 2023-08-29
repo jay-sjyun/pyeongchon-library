@@ -27,5 +27,5 @@ DB와 중복 검사시 비동기 방식을 async/await 으로 처리하여 동�
 
 # 상세 설명 :
 - 헤더/푸터를 PHP include로 분리하여 관리가 용이  
-- [가짜 DB](https://my-json-server.typicode.com/dev-yun0525/fakedb/todos)  
-백엔드 서버 부재로 불러오기만 가능한 가짜 DB 연동(데이터 수정 불가) -> 새로 가입한 사용자는 localStorage에 정보 저장
+- [임시 DB](https://my-json-server.typicode.com/jay-sjyun/fakedb)  
+백엔드 서버 부재로 불러오기만 가능한 임시 DB 연동(데이터 수정 불가) -> 새로 가입한 사용자는 localStorage에 정보 저장
